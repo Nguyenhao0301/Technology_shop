@@ -1,0 +1,453 @@
+/* ========================================
+   BRANDS PAGE
+======================================== */
+
+.brands-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 80px 30px 110px;
+
+    background: #f7f7f9;
+    color: #111;
+
+    box-sizing: border-box;
+}
+
+.brands-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.brands-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    gap: 40px;
+
+    margin-bottom: 50px;
+    padding-bottom: 28px;
+
+    border-bottom: 1px solid #dedee3;
+}
+
+.brands-title {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.brands-label {
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 2.5px;
+
+    color: #7357ff;
+}
+
+.brands-header h1 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 56px;
+    line-height: 1;
+
+    font-weight: 700;
+
+    letter-spacing: -1px;
+
+    color: #111;
+}
+
+.brands-header p {
+    max-width: 380px;
+
+    margin: 0;
+
+    font-size: 15px;
+    line-height: 1.7;
+
+    color: #777985;
+}
+
+
+/* ========================================
+   BRAND GRID
+======================================== */
+
+.brands-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 24px;
+}
+
+
+/* ========================================
+   BRAND CARD
+======================================== */
+
+.brand-card {
+    position: relative;
+
+    display: block;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid #e3e3e8;
+
+    border-radius: 18px;
+
+    text-decoration: none;
+
+    color: #111;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.04);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.brand-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #cfc6ff;
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.10),
+        0 0 30px rgba(115, 87, 255, 0.08);
+}
+
+
+/* ========================================
+   LOGO AREA
+======================================== */
+
+.brand-logo {
+    position: relative;
+
+    width: 100%;
+    height: 250px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f2f2f5
+        );
+}
+
+
+/* Decorative background */
+
+.brand-logo::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -80px;
+    right: -60px;
+
+    border-radius: 50%;
+
+    background: #7357ff;
+
+    opacity: 0;
+
+    filter: blur(65px);
+
+    transition:
+        opacity 0.4s ease;
+}
+
+.brand-card:hover .brand-logo::before {
+    opacity: 0.12;
+}
+
+
+/* ========================================
+   LOGO IMAGE
+======================================== */
+
+.brand-logo img {
+    position: relative;
+
+    z-index: 1;
+
+    width: 68%;
+    height: 68%;
+
+    object-fit: contain;
+
+    filter: grayscale(100%);
+
+    opacity: 0.65;
+
+    transition:
+        transform 0.45s ease,
+        filter 0.45s ease,
+        opacity 0.45s ease;
+}
+
+.brand-card:hover .brand-logo img {
+    transform: scale(1.08);
+
+    filter: grayscale(0%);
+
+    opacity: 1;
+}
+
+
+/* ========================================
+   CONTENT
+======================================== */
+
+.brand-content {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 22px 24px;
+
+    background: #ffffff;
+}
+
+.brand-content h2 {
+    margin: 0;
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+    color: #15151a;
+}
+
+.brand-link {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    white-space: nowrap;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #777985;
+
+    transition:
+        color 0.25s ease;
+}
+
+.brand-card:hover .brand-link {
+    color: #7357ff;
+}
+
+
+/* ========================================
+   ARROW
+======================================== */
+
+.arrow {
+    display: inline-block;
+
+    font-size: 17px;
+
+    transition:
+        transform 0.25s ease;
+}
+
+.brand-card:hover .arrow {
+    transform: translateX(5px);
+}
+
+
+/* ========================================
+   LOADING / ERROR
+======================================== */
+
+.brands-message {
+    min-height: 550px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+.brands-message h1 {
+    margin: 0 0 10px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 32px;
+
+    color: #111;
+}
+
+.brands-message p {
+    margin: 0 0 25px;
+
+    color: #777985;
+
+    line-height: 1.6;
+}
+
+.brands-message a {
+    color: #7357ff;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease;
+}
+
+.brands-message a:hover {
+    color: #5237df;
+}
+
+
+/* ========================================
+   LOADING SPINNER
+======================================== */
+
+.loading-spinner {
+    width: 42px;
+    height: 42px;
+
+    margin-bottom: 20px;
+
+    border: 4px solid #e4e4e8;
+
+    border-top-color: #7357ff;
+
+    border-radius: 50%;
+
+    animation:
+        spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1000px) {
+
+    .brands-page {
+        padding: 65px 24px 90px;
+    }
+
+    .brands-header h1 {
+        font-size: 48px;
+    }
+
+    .brands-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 650px) {
+
+    .brands-page {
+        padding: 50px 16px 70px;
+    }
+
+    .brands-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 18px;
+
+        margin-bottom: 35px;
+    }
+
+    .brands-header h1 {
+        font-size: 40px;
+    }
+
+    .brands-header p {
+        font-size: 14px;
+    }
+
+    .brands-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .brand-logo {
+        height: 225px;
+    }
+
+    .brand-content {
+        padding: 19px 20px;
+    }
+
+    .brand-content h2 {
+        font-size: 17px;
+    }
+
+    .brand-link {
+        font-size: 12px;
+    }
+
+}

@@ -1,0 +1,129 @@
+.mini-cart-wrapper {
+    position: relative;
+}
+
+.mini-cart {
+    position: absolute;
+    top: calc(100% + 14px);
+    right: -12px;
+    z-index: 1100;
+    width: min(380px, calc(100vw - 32px));
+    padding: 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    background: var(--bg-secondary);
+    box-shadow: 0 20px 50px var(--shadow-color);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+}
+
+.mini-cart-wrapper:hover .mini-cart,
+.mini-cart-wrapper:focus-within .mini-cart {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.mini-cart-header,
+.mini-cart-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.mini-cart-header {
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.mini-cart-header strong,
+.mini-cart-total strong {
+    color: var(--text-primary);
+}
+
+.mini-cart-header span,
+.mini-cart-item span {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.mini-cart-empty {
+    margin: 22px 0 8px;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.mini-cart-items {
+    max-height: 270px;
+    overflow-y: auto;
+}
+
+.mini-cart-item {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 11px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.mini-cart-item img {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    object-fit: contain;
+    background: var(--bg-tertiary);
+}
+
+.mini-cart-item div {
+    min-width: 0;
+}
+
+.mini-cart-item strong {
+    display: block;
+    overflow: hidden;
+    color: var(--text-primary);
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mini-cart-item span {
+    display: block;
+    margin-top: 4px;
+}
+
+.mini-cart-item b {
+    color: var(--text-primary);
+    font-size: 12px;
+}
+
+.mini-cart-total {
+    padding: 16px 0;
+}
+
+.mini-cart-total strong {
+    color: var(--accent-primary);
+    font-size: 18px;
+}
+
+.mini-cart-button {
+    display: block;
+    padding: 11px;
+    border-radius: 8px;
+    background: var(--accent-secondary);
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.mini-cart-button:hover {
+    background: var(--accent-hover);
+}

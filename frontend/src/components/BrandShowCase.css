@@ -1,0 +1,294 @@
+.brand-showcase {
+    padding: 100px 6%;
+    background: #090a10;
+    color: #fff;
+}
+
+/* ================================
+   HEADER
+================================ */
+
+.brand-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 55px;
+}
+
+.section-label {
+    display: inline-block;
+    margin-bottom: 18px;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    color: #8b6cff;
+}
+
+.brand-header h2 {
+    margin: 0;
+
+    font-size: 48px;
+    line-height: 1.05;
+
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.brand-header h2 span {
+    color: #8b6cff;
+}
+
+.brand-header p {
+    margin-top: 20px;
+
+    color: #8f91a3;
+    font-size: 16px;
+}
+
+/* ================================
+   VIEW ALL BRANDS
+================================ */
+
+.view-brands {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #9a7cff;
+    text-decoration: none;
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.view-brands span {
+    font-size: 20px;
+    transition: 0.3s ease;
+}
+
+.view-brands:hover {
+    color: #b6a4ff;
+}
+
+.view-brands:hover span {
+    transform: translateX(5px);
+}
+
+/* ================================
+   BRANDS GRID
+================================ */
+
+.brands-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+/* ================================
+   BRAND CARD
+================================ */
+
+.brand-card {
+    position: relative;
+
+    min-height: 210px;
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    text-decoration: none;
+
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.04),
+        rgba(255, 255, 255, 0.015)
+    );
+
+    border: 1px solid #242532;
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+/* Purple glow */
+
+.brand-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 140px;
+    height: 140px;
+
+    right: -60px;
+    top: -60px;
+
+    background: #7557ff;
+
+    opacity: 0;
+
+    filter: blur(60px);
+
+    transition: 0.4s ease;
+}
+
+/* Hover */
+
+.brand-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #7055e8;
+
+    background: linear-gradient(
+        145deg,
+        rgba(116, 86, 255, 0.12),
+        rgba(255, 255, 255, 0.025)
+    );
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.brand-card:hover::before {
+    opacity: 0.35;
+}
+
+/* ================================
+   BRAND LOGO
+================================ */
+
+.brand-logo {
+    position: relative;
+    z-index: 1;
+
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+}
+
+.brand-logo img {
+    max-width: 130px;
+    max-height: 55px;
+
+    object-fit: contain;
+
+    filter: grayscale(100%);
+    opacity: 0.7;
+
+    transition:
+        filter 0.35s ease,
+        opacity 0.35s ease,
+        transform 0.35s ease;
+}
+
+.brand-card:hover .brand-logo img {
+    filter: grayscale(0%);
+    opacity: 1;
+
+    transform: scale(1.05);
+}
+
+/* ================================
+   BRAND INFORMATION
+================================ */
+
+.brand-info {
+    position: relative;
+    z-index: 1;
+}
+
+.brand-info h3 {
+    margin: 0 0 7px;
+
+    font-size: 20px;
+
+    color: #fff;
+}
+
+.brand-info p {
+    margin: 0;
+
+    font-size: 13px;
+
+    color: #777a8c;
+}
+
+/* ================================
+   ARROW
+================================ */
+
+.brand-arrow {
+    position: absolute;
+
+    right: 25px;
+    bottom: 24px;
+
+    font-size: 20px;
+
+    color: #777;
+
+    opacity: 0;
+
+    transform: translateX(-5px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+.brand-card:hover .brand-arrow {
+    opacity: 1;
+
+    color: #9a7cff;
+
+    transform: translateX(0);
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1100px) {
+
+    .brands-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+
+    .brand-showcase {
+        padding: 70px 5%;
+    }
+
+    .brand-header {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 25px;
+    }
+
+    .brand-header h2 {
+        font-size: 38px;
+    }
+
+    .brands-grid {
+        grid-template-columns: 1fr;
+    }
+}

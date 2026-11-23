@@ -1,0 +1,61 @@
+.product-qa {
+    margin-top: 40px;
+    padding-bottom: 60px;
+}
+
+.product-qa-header {
+    margin-bottom: 24px;
+}
+
+.product-qa-header h2 {
+    margin: 0 0 8px;
+    font-size: 32px;
+}
+
+.product-qa-header p {
+    margin: 0;
+    color: #888;
+}
+
+.product-qa-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product-qa-item {
+    border: 1px solid #252733;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #11131b;
+}
+
+.product-qa-question {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.product-qa-icon {
+    font-size: 22px;
+    color: #8b5cf6;
+    margin-left: 20px;
+}
+
+.product-qa-answer {
+    padding: 0 20px 20px;
+    color: #999;
+    line-height: 1.7;
+}
+
+.product-qa-answer p {
+    margin: 0;
+}

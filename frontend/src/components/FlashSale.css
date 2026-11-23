@@ -1,0 +1,580 @@
+.flash-sale-section {
+    position: relative;
+    width: 100%;
+    padding: 90px 0;
+    background: #090a10;
+    color: #f8fafc;
+    overflow: hidden;
+}
+
+.flash-sale-section::before {
+    content: "";
+    position: absolute;
+    top: 15%;
+    left: -180px;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: rgba(124, 92, 246, 0.07);
+    filter: blur(120px);
+    pointer-events: none;
+}
+
+.flash-sale-container {
+    position: relative;
+    z-index: 1;
+    width: min(1200px, 90%);
+    margin: 0 auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.flash-sale-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 38px;
+}
+
+.flash-sale-heading {
+    max-width: 600px;
+}
+
+.flash-sale-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 13px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    border-radius: 999px;
+    background: rgba(139, 92, 246, 0.08);
+    color: #a78bfa;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+}
+
+.flash-sale-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #8b5cf6;
+    box-shadow: 0 0 8px rgba(139, 92, 246, 0.8);
+}
+
+.flash-sale-heading h2 {
+    margin: 0;
+    color: #f8fafc;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(34px, 4vw, 46px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.05em;
+}
+
+.flash-sale-heading h2 span {
+    background: linear-gradient(90deg,
+            #8b5cf6,
+            #6366f1,
+            #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   ACTIONS / COUNTDOWN
+========================= */
+
+.flash-sale-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.flash-countdown {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #8b5cf6;
+}
+
+.countdown-label {
+    margin-right: 2px;
+    color: #94a3b8;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.countdown-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 54px;
+    height: 54px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 11px;
+
+    background: rgba(255, 255, 255, 0.035);
+    backdrop-filter: blur(12px);
+
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.countdown-box strong {
+    color: #f8fafc;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 19px;
+    line-height: 1;
+}
+
+.countdown-box small {
+    margin-top: 5px;
+    color: #64748b;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.flash-view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    min-height: 40px;
+    padding: 0 15px;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    color: #f8fafc;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.flash-view-all span {
+    font-size: 17px;
+    transition: transform 0.2s ease;
+}
+
+.flash-view-all:hover {
+    background: rgba(139, 92, 246, 0.1);
+    border-color: rgba(139, 92, 246, 0.3);
+    transform: translateY(-2px);
+}
+
+.flash-view-all:hover span {
+    transform: translateX(3px);
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.flash-products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.flash-product-card {
+    position: relative;
+    min-width: 0;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 15px;
+
+    background: #10121d;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.flash-product-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(139, 92, 246, 0.38);
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.28),
+        0 0 30px rgba(99, 102, 241, 0.07);
+}
+
+/* =========================
+   BADGES
+========================= */
+
+.flash-product-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 3;
+
+    padding: 5px 9px;
+
+    border-radius: 7px;
+
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+}
+
+.badge-sale {
+    border: 1px solid rgba(251, 113, 133, 0.4);
+    background: rgba(251, 113, 133, 0.14);
+    color: #fb7185;
+}
+
+.badge-best-seller {
+    border: 1px solid rgba(234, 179, 8, 0.35);
+    background: rgba(113, 85, 0, 0.45);
+    color: #facc15;
+}
+
+.badge-hot {
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    background: rgba(139, 92, 246, 0.15);
+    color: #a78bfa;
+}
+
+.flash-discount-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 3;
+
+    padding: 6px 9px;
+
+    border-radius: 999px;
+
+    background: #f43f5e;
+    color: white;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    box-shadow: 0 5px 15px rgba(244, 63, 94, 0.25);
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.flash-product-image {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 215px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 50% 20%,
+            rgba(99, 102, 241, 0.08),
+            transparent 60%);
+}
+
+.flash-product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition:
+        transform 0.4s ease,
+        filter 0.4s ease;
+}
+
+.flash-product-card:hover .flash-product-image img {
+    transform: scale(1.04);
+    filter: brightness(1.05);
+}
+
+/* =========================
+   WISHLIST
+========================= */
+
+.flash-wishlist {
+    position: absolute;
+    right: 12px;
+    bottom: 100px;
+    z-index: 4;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+
+    background: rgba(8, 10, 18, 0.75);
+    color: #cbd5e1;
+
+    backdrop-filter: blur(10px);
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.flash-wishlist:hover {
+    color: #fb7185;
+    border-color: rgba(251, 113, 133, 0.35);
+    background: rgba(251, 113, 133, 0.08);
+}
+
+/* =========================
+   INFO
+========================= */
+
+.flash-product-info {
+    position: relative;
+    padding: 17px 14px 14px;
+}
+
+.flash-product-brand {
+    display: block;
+    margin-bottom: 5px;
+
+    color: #94a3b8;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.flash-product-title {
+    display: block;
+
+    min-height: 36px;
+
+    color: #f8fafc;
+
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.45;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.flash-product-title:hover {
+    color: #a78bfa;
+}
+
+/* =========================
+   RATING
+========================= */
+
+.flash-product-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    margin-top: 9px;
+}
+
+.flash-product-rating span {
+    color: #facc15;
+    font-size: 13px;
+}
+
+.flash-product-rating strong {
+    color: #e2e8f0;
+    font-size: 10px;
+}
+
+.flash-product-rating small {
+    color: #64748b;
+    font-size: 9px;
+}
+
+/* =========================
+   STOCK
+========================= */
+
+.flash-stock {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    margin-top: 9px;
+
+    color: #34d399;
+
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.flash-stock span {
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #34d399;
+    box-shadow: 0 0 8px rgba(52, 211, 153, 0.55);
+}
+
+/* =========================
+   PRICE
+========================= */
+
+.flash-product-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    margin-top: 12px;
+}
+
+.flash-prices {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.flash-prices strong {
+    color: #f8fafc;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.flash-prices span {
+    color: #64748b;
+    font-size: 9px;
+    text-decoration: line-through;
+}
+
+/* =========================
+   CART
+========================= */
+
+.flash-cart-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+
+    padding: 0;
+
+    border: 0;
+    border-radius: 10px;
+
+    background: linear-gradient(135deg,
+            #8b5cf6,
+            #4f7cff);
+
+    color: white;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.flash-cart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.35);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1050px) {
+
+    .flash-products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .flash-sale-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .flash-sale-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .flash-sale-section {
+        padding: 70px 0;
+    }
+
+    .flash-sale-container {
+        width: 90%;
+    }
+
+    .flash-sale-heading h2 {
+        font-size: 34px;
+    }
+
+    .flash-sale-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .flash-countdown {
+        width: 100%;
+    }
+
+    .flash-products-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .flash-sale-heading h2 {
+        font-size: 30px;
+    }
+
+    .countdown-box {
+        width: 48px;
+        height: 48px;
+    }
+
+    .countdown-box strong {
+        font-size: 16px;
+    }
+}

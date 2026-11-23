@@ -1,0 +1,146 @@
+.payment-page {
+    min-height: 75vh;
+    padding: 48px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f7fb;
+}
+
+.payment-card {
+    width: 100%;
+    max-width: 520px;
+    padding: 32px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08);
+}
+
+.payment-logo {
+    width: fit-content;
+    margin: 0 auto 20px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.payment-logo.momo {
+    color: #ffffff;
+    background: #a50082;
+}
+
+.payment-logo.vnpay {
+    color: #ffffff;
+    background: #0756a5;
+}
+
+.payment-card h1 {
+    margin: 0 0 12px;
+    color: #0f172a;
+    text-align: center;
+    font-size: 26px;
+}
+
+.payment-description {
+    margin: 0 0 28px;
+    color: #64748b;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.payment-order-info {
+    display: grid;
+    gap: 16px;
+    padding: 20px;
+    margin-bottom: 24px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+.payment-order-info>div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.payment-order-info span {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.payment-order-info strong {
+    color: #1e293b;
+    overflow-wrap: anywhere;
+}
+
+.payment-order-info .payment-amount {
+    color: #0f766e;
+    font-size: 25px;
+}
+
+.payment-actions {
+    display: grid;
+    gap: 12px;
+}
+
+.payment-actions button,
+.payment-card>button,
+.payment-card button {
+    width: 100%;
+    padding: 14px 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.payment-success-btn {
+    color: #ffffff;
+    background: #059669;
+}
+
+.payment-failure-btn {
+    color: #ffffff;
+    background: #dc2626;
+}
+
+.payment-back-btn {
+    margin-top: 12px;
+    color: #334155;
+    background: #e2e8f0;
+}
+
+.payment-card button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.payment-card button:hover:not(:disabled) {
+    opacity: 0.88;
+}
+
+.payment-error {
+    margin: 0 0 16px;
+    color: #b91c1c;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+    .payment-page {
+        padding: 24px 14px;
+    }
+
+    .payment-card {
+        padding: 22px 18px;
+    }
+
+    .payment-card h1 {
+        font-size: 22px;
+    }
+}

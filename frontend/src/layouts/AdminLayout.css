@@ -1,0 +1,179 @@
+.admin-layout {
+    min-height: 100vh;
+    display: flex;
+    background: #09090f;
+    color: #f5f3ff;
+}
+
+.admin-main {
+    flex: 1;
+    min-width: 0;
+    width: calc(100% - 72px);
+    margin-left: 72px;
+    background: #09090f;
+
+    transition:
+        margin-left 0.25s ease,
+        width 0.25s ease;
+}
+
+.admin-layout:has(.admin-sidebar:hover) .admin-main,
+.admin-layout:has(.admin-sidebar:focus-within) .admin-main {
+    width: calc(100% - 250px);
+    margin-left: 250px;
+}
+
+/* ================================
+   ADMIN HEADER
+================================ */
+
+.admin-header {
+    min-height: 84px;
+    padding: 18px 32px 18px 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    background: rgba(17, 14, 26, 0.96);
+    border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+    box-shadow: 0 5px 24px rgba(0, 0, 0, 0.15);
+}
+
+.admin-header h1 {
+    margin: 0;
+    color: #faf5ff;
+    font-size: 24px;
+    font-weight: 750;
+    letter-spacing: -0.4px;
+}
+
+.admin-header p {
+    margin: 6px 0 0;
+    color: #a1a1aa;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.admin-header-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 42px;
+    padding: 10px 16px;
+
+    color: #e9d5ff;
+    font-size: 14px;
+    font-weight: 600;
+
+    background: rgba(124, 58, 237, 0.13);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 12px;
+
+    white-space: nowrap;
+}
+
+/* ================================
+   ADMIN CONTENT
+================================ */
+
+.admin-content {
+    box-sizing: border-box;
+    min-width: 0;
+    min-height: calc(100vh - 84px);
+    padding: 30px 32px;
+
+    background:
+        radial-gradient(ellipse at top right,
+            rgba(88, 28, 135, 0.08),
+            transparent 38%),
+        #09090f;
+}
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 1024px) and (min-width: 761px) {
+    .admin-header {
+        padding: 18px 24px 18px 32px;
+    }
+
+    .admin-content {
+        padding: 24px;
+    }
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 760px) {
+    .admin-layout {
+        display: block;
+    }
+
+    /*
+      Sidebar chuyển về menu ngang trên màn hình nhỏ.
+      Không áp dụng hiệu ứng đẩy nội dung trên mobile.
+    */
+    .admin-main,
+    .admin-layout:has(.admin-sidebar:hover) .admin-main,
+    .admin-layout:has(.admin-sidebar:focus-within) .admin-main {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .admin-header {
+        min-height: 76px;
+        padding: 16px 20px;
+    }
+
+    .admin-header h1 {
+        font-size: 21px;
+    }
+
+    .admin-content {
+        min-height: auto;
+        padding: 22px 20px;
+    }
+}
+
+/* ================================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 480px) {
+    .admin-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+        padding: 18px 16px;
+    }
+
+    .admin-header h1 {
+        font-size: 20px;
+    }
+
+    .admin-header-user {
+        min-height: 36px;
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .admin-content {
+        padding: 18px 14px;
+    }
+}
+
+/* ================================
+   ACCESSIBILITY
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .admin-main {
+        transition: none;
+    }
+}

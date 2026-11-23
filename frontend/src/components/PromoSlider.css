@@ -1,0 +1,347 @@
+.promo-slider {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    max-width: 1400px;
+    height: 560px;
+    margin: 0 auto;
+    overflow: hidden;
+    background: var(--bg-secondary, #0b0d14);
+    color: var(--text-primary, #ffffff);
+}
+
+/* Mỗi slide phủ toàn bộ banner và chồng lên nhau */
+.promo-slide {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.promo-slide.is-active {
+    z-index: 2;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Ảnh banner */
+.promo-slider-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.02);
+    transition: transform 5s ease;
+}
+
+.promo-slide.is-active .promo-slider-image {
+    transform: scale(1);
+}
+
+/* Lớp phủ giúp nội dung dễ đọc */
+.promo-slider-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg,
+            rgba(7, 9, 16, 0.94) 0%,
+            rgba(7, 9, 16, 0.78) 35%,
+            rgba(7, 9, 16, 0.32) 70%,
+            rgba(7, 9, 16, 0.12) 100%);
+}
+
+/* Nội dung banner */
+.promo-slider-content {
+    position: absolute;
+    top: 50%;
+    left: clamp(28px, 6vw, 80px);
+    right: clamp(70px, 9vw, 130px);
+    width: min(600px, calc(100% - 100px));
+    transform: translateY(calc(-50% + 12px));
+    opacity: 0;
+    transition:
+        opacity 0.55s ease,
+        transform 0.65s ease;
+}
+
+.promo-slide.is-active .promo-slider-content {
+    opacity: 1;
+    transform: translateY(-50%);
+    transition-delay: 0.15s;
+}
+
+.promo-slider-content>span {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #b6a2ff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.promo-slider-content h2 {
+    margin: 0 0 20px;
+    color: #ffffff;
+    font-family: "Space Grotesk", "Inter", sans-serif;
+    font-size: clamp(36px, 4.3vw, 58px);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -1.8px;
+    overflow-wrap: anywhere;
+}
+
+.promo-slider-content p {
+    max-width: 500px;
+    margin: 0 0 30px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* Nút kêu gọi hành động */
+.promo-slider-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 48px;
+    padding: 13px 24px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    background: var(--accent-secondary, #7c5cff);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.promo-slider-cta:hover {
+    background: var(--accent-primary, #a78bfa);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(124, 92, 255, 0.3);
+}
+
+.promo-slider-cta:focus-visible,
+.slider-button:focus-visible,
+.slider-dots button:focus-visible {
+    outline: 2px solid #c4b5fd;
+    outline-offset: 4px;
+}
+
+/* Nút chuyển slide */
+.slider-button {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 50%;
+    background: rgba(10, 12, 20, 0.48);
+    color: #ffffff;
+    font-size: 21px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transform: translateY(-50%);
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.slider-button:hover {
+    background: var(--accent-secondary, #7c5cff);
+    border-color: var(--accent-secondary, #7c5cff);
+    transform: translateY(-50%) scale(1.06);
+}
+
+.slider-prev {
+    left: 20px;
+}
+
+.slider-next {
+    right: 20px;
+}
+
+/* Chấm điều hướng */
+.slider-dots {
+    position: absolute;
+    bottom: 26px;
+    left: 50%;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    transform: translateX(-50%);
+}
+
+.slider-dots button {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.48);
+    cursor: pointer;
+    transition:
+        width 0.3s ease,
+        background 0.3s ease;
+}
+
+.slider-dots button.active {
+    width: 28px;
+    background: #b6a2ff;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .promo-slider {
+        height: 500px;
+    }
+
+    .promo-slider-content {
+        left: 55px;
+        right: 75px;
+        width: auto;
+    }
+
+    .promo-slider-content h2 {
+        font-size: clamp(34px, 5.2vw, 46px);
+    }
+
+    .promo-slider-content p {
+        font-size: 15px;
+    }
+
+    .slider-button {
+        width: 42px;
+        height: 42px;
+    }
+
+    .slider-prev {
+        left: 12px;
+    }
+
+    .slider-next {
+        right: 12px;
+    }
+}
+
+/* Điện thoại */
+@media (max-width: 600px) {
+    .promo-slider {
+        height: 450px;
+    }
+
+    .promo-slider-image {
+        object-position: center;
+    }
+
+    .promo-slider-overlay {
+        background: linear-gradient(90deg,
+                rgba(7, 9, 16, 0.88),
+                rgba(7, 9, 16, 0.58));
+    }
+
+    .promo-slider-content {
+        left: 24px;
+        right: 24px;
+        width: auto;
+    }
+
+    .promo-slider-content>span {
+        margin-bottom: 14px;
+        font-size: 10px;
+        letter-spacing: 2.5px;
+    }
+
+    .promo-slider-content h2 {
+        margin-bottom: 16px;
+        font-size: clamp(30px, 8vw, 38px);
+        letter-spacing: -1px;
+        line-height: 1.12;
+    }
+
+    .promo-slider-content p {
+        margin-bottom: 22px;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .promo-slider-cta {
+        min-height: 44px;
+        padding: 11px 17px;
+        font-size: 13px;
+    }
+
+    .slider-button {
+        top: auto;
+        bottom: 16px;
+        width: 36px;
+        height: 36px;
+        font-size: 17px;
+        transform: none;
+    }
+
+    .slider-button:hover {
+        transform: scale(1.05);
+    }
+
+    .slider-prev {
+        left: 18px;
+    }
+
+    .slider-next {
+        right: 18px;
+    }
+
+    .slider-dots {
+        bottom: 29px;
+        gap: 7px;
+    }
+
+    .slider-dots button {
+        width: 7px;
+        height: 7px;
+    }
+
+    .slider-dots button.active {
+        width: 22px;
+    }
+}
+
+/* Tôn trọng cài đặt giảm chuyển động của hệ điều hành */
+@media (prefers-reduced-motion: reduce) {
+
+    .promo-slide,
+    .promo-slider-content,
+    .promo-slider-image,
+    .promo-slider-cta,
+    .slider-button,
+    .slider-dots button {
+        transition: none;
+    }
+
+    .promo-slider-image,
+    .promo-slide.is-active .promo-slider-image {
+        transform: none;
+    }
+}

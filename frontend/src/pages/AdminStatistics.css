@@ -1,0 +1,598 @@
+.admin-statistics {
+    width: 100%;
+    min-width: 0;
+    min-height: 100vh;
+    padding: 28px;
+    color: #f5f3ff;
+    background: #09090f;
+}
+
+.statistics-header {
+    margin-bottom: 28px;
+}
+
+.statistics-header h1 {
+    margin: 0 0 8px;
+    color: #faf5ff;
+    font-size: 28px;
+    line-height: 1.3;
+    font-weight: 750;
+    letter-spacing: -0.5px;
+}
+
+.statistics-header p {
+    margin: 0;
+    color: #a1a1aa;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ================================
+   ORDER STATISTICS CARDS
+================================ */
+.statistics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.statistics-card {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    padding: 22px;
+    background: linear-gradient(145deg, #171222, #100d18);
+    border: 1px solid rgba(168, 85, 247, 0.16);
+    border-top: 3px solid #7c3aed;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.16);
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.statistics-card::after {
+    position: absolute;
+    top: -35px;
+    right: -35px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(124, 58, 237, 0.07);
+    content: "";
+    pointer-events: none;
+}
+
+.statistics-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(168, 85, 247, 0.35);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
+}
+
+.statistics-card--purple {
+    border-top-color: #a855f7;
+}
+
+.statistics-card--orange {
+    border-top-color: #f59e0b;
+}
+
+.statistics-card--blue {
+    border-top-color: #3b82f6;
+}
+
+.statistics-card--violet {
+    border-top-color: #8b5cf6;
+}
+
+.statistics-card--green {
+    border-top-color: #10b981;
+}
+
+.statistics-card--red {
+    border-top-color: #ef4444;
+}
+
+.statistics-card-label {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 18px;
+    color: #b4adc4;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.statistics-card-value {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    color: #faf5ff;
+    font-size: clamp(25px, 2.4vw, 32px);
+    line-height: 1.2;
+    font-weight: 750;
+    overflow-wrap: anywhere;
+}
+
+/* ================================
+   REVENUE CARDS
+================================ */
+.statistics-revenue-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.statistics-revenue-card {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    padding: 26px;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.statistics-revenue-card:hover {
+    transform: translateY(-2px);
+}
+
+.statistics-revenue-card--total {
+    background: linear-gradient(135deg,
+            rgba(16, 185, 129, 0.13),
+            rgba(16, 185, 129, 0.04));
+    border-color: rgba(16, 185, 129, 0.25);
+}
+
+.statistics-revenue-card--average {
+    background: linear-gradient(135deg,
+            rgba(59, 130, 246, 0.13),
+            rgba(59, 130, 246, 0.04));
+    border-color: rgba(59, 130, 246, 0.25);
+}
+
+.statistics-revenue-label {
+    margin: 0 0 16px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.statistics-revenue-card--total .statistics-revenue-label {
+    color: #6ee7b7;
+}
+
+.statistics-revenue-card--average .statistics-revenue-label {
+    color: #93c5fd;
+}
+
+.statistics-revenue-value {
+    margin: 0;
+    font-size: clamp(22px, 2.4vw, 30px);
+    line-height: 1.4;
+    font-weight: 750;
+    overflow-wrap: anywhere;
+}
+
+.statistics-revenue-card--total .statistics-revenue-value {
+    color: #a7f3d0;
+}
+
+.statistics-revenue-card--average .statistics-revenue-value {
+    color: #bfdbfe;
+}
+
+/* ================================
+   LOADING / ERROR MESSAGE
+================================ */
+.statistics-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+    padding: 24px;
+    color: #c4b5fd;
+    font-size: 15px;
+    text-align: center;
+    background: #110e1b;
+    border: 1px solid rgba(168, 85, 247, 0.18);
+    border-radius: 14px;
+}
+
+.statistics-error {
+    color: #fca5a5;
+    background: rgba(127, 29, 29, 0.12);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* ================================
+   CHART CONTAINER
+================================ */
+.statistics-chart-card {
+    min-width: 0;
+    margin-top: 24px;
+    padding: 24px;
+    background: linear-gradient(145deg, #151020, #100d18);
+    border: 1px solid rgba(168, 85, 247, 0.17);
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.16);
+}
+
+.statistics-chart-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.statistics-chart-header>div {
+    min-width: 0;
+}
+
+.statistics-chart-header h2 {
+    margin: 0 0 8px;
+    color: #f5f3ff;
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.statistics-chart-header p {
+    margin: 0;
+    color: #a1a1aa;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.statistics-chart {
+    width: 100%;
+    height: 320px;
+    min-width: 0;
+}
+
+/* Recharts axis and grid colors */
+.statistics-chart .recharts-cartesian-grid-horizontal line {
+    stroke: rgba(167, 139, 250, 0.13);
+}
+
+.statistics-chart .recharts-x-axis line,
+.statistics-chart .recharts-y-axis line {
+    stroke: rgba(167, 139, 250, 0.15);
+}
+
+.statistics-chart .recharts-text {
+    fill: #a1a1aa;
+}
+
+.statistics-chart .recharts-tooltip-cursor {
+    fill: rgba(168, 85, 247, 0.07);
+}
+
+/* ================================
+   TIME FILTER
+================================ */
+.statistics-filter {
+    min-width: 180px;
+    max-width: 100%;
+    padding: 10px 36px 10px 13px;
+    color: #e9d5ff;
+    font-family: inherit;
+    font-size: 13px;
+    background-color: #1b1428;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 9px;
+    cursor: pointer;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.statistics-filter:hover {
+    border-color: rgba(192, 132, 252, 0.65);
+}
+
+.statistics-filter:focus {
+    outline: none;
+    border-color: #a855f7;
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.15);
+}
+
+.statistics-filter option {
+    color: #f5f3ff;
+    background: #171222;
+}
+
+/* ================================
+   REVENUE SUMMARY
+================================ */
+.statistics-revenue-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    padding: 17px 18px;
+    background: rgba(16, 185, 129, 0.07);
+    border: 1px solid rgba(16, 185, 129, 0.19);
+    border-radius: 11px;
+}
+
+.statistics-revenue-summary span {
+    color: #a7b5ad;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.statistics-revenue-summary strong {
+    color: #6ee7b7;
+    font-size: 21px;
+    font-weight: 750;
+    overflow-wrap: anywhere;
+}
+
+/* ================================
+   BEST-SELLING PRODUCTS TABLE
+================================ */
+.best-selling-card {
+    margin-top: 24px;
+}
+
+.best-selling-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    border-radius: 11px;
+    scrollbar-color: #6d28d9 #171222;
+    scrollbar-width: thin;
+}
+
+.best-selling-table {
+    width: 100%;
+    min-width: 680px;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: left;
+}
+
+.best-selling-table th,
+.best-selling-table td {
+    padding: 15px 18px;
+    border-bottom: 1px solid rgba(167, 139, 250, 0.1);
+    white-space: nowrap;
+}
+
+.best-selling-table th {
+    color: #c4b5fd;
+    font-size: 12px;
+    font-weight: 650;
+    letter-spacing: 0.3px;
+    background: #1a1426;
+}
+
+.best-selling-table td {
+    color: #ddd6e9;
+    font-size: 13px;
+    background: rgba(17, 14, 27, 0.65);
+    transition: background 0.2s ease;
+}
+
+.best-selling-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.best-selling-table tbody tr:hover td {
+    background: rgba(124, 58, 237, 0.08);
+}
+
+.best-selling-table th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.best-selling-table th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.best-selling-product {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 220px;
+    color: #f5f3ff;
+    font-weight: 550;
+}
+
+.best-selling-product span {
+    max-width: 320px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.best-selling-image {
+    flex: 0 0 auto;
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    padding: 4px;
+    background: #ffffff;
+    border: 1px solid rgba(192, 132, 252, 0.2);
+    border-radius: 9px;
+}
+
+.best-selling-rank {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 31px;
+    height: 31px;
+    color: #d8b4fe;
+    font-size: 13px;
+    font-weight: 750;
+    background: rgba(124, 58, 237, 0.16);
+    border: 1px solid rgba(168, 85, 247, 0.22);
+    border-radius: 9px;
+}
+
+.rank-1 {
+    color: #fde68a;
+    background: rgba(245, 158, 11, 0.14);
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+.rank-2 {
+    color: #e2e8f0;
+    background: rgba(148, 163, 184, 0.13);
+    border-color: rgba(148, 163, 184, 0.25);
+}
+
+.rank-3 {
+    color: #fdba74;
+    background: rgba(249, 115, 22, 0.13);
+    border-color: rgba(249, 115, 22, 0.25);
+}
+
+.best-selling-empty {
+    padding: 28px !important;
+    color: #a1a1aa !important;
+    text-align: center;
+    white-space: normal !important;
+}
+
+/* ================================
+   RESPONSIVE TABLET
+================================ */
+@media (max-width: 1000px) {
+    .admin-statistics {
+        padding: 24px;
+    }
+
+    .statistics-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .statistics-chart-card {
+        padding: 20px;
+    }
+}
+
+/* ================================
+   RESPONSIVE MOBILE
+================================ */
+@media (max-width: 600px) {
+    .admin-statistics {
+        padding: 16px;
+    }
+
+    .statistics-header {
+        margin-bottom: 22px;
+    }
+
+    .statistics-header h1 {
+        font-size: 23px;
+    }
+
+    .statistics-header p {
+        font-size: 13px;
+    }
+
+    .statistics-grid,
+    .statistics-revenue-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 13px;
+    }
+
+    .statistics-card {
+        padding: 19px;
+    }
+
+    .statistics-card-label {
+        margin-bottom: 12px;
+    }
+
+    .statistics-card-value {
+        font-size: 27px;
+    }
+
+    .statistics-revenue-grid {
+        margin-top: 18px;
+    }
+
+    .statistics-revenue-card {
+        padding: 21px;
+    }
+
+    .statistics-revenue-value {
+        font-size: 24px;
+    }
+
+    .statistics-chart-card,
+    .best-selling-card {
+        margin-top: 18px;
+        padding: 16px;
+        border-radius: 13px;
+    }
+
+    .statistics-chart-header {
+        gap: 13px;
+        margin-bottom: 16px;
+    }
+
+    .statistics-chart-header h2 {
+        font-size: 16px;
+    }
+
+    .statistics-chart-header p {
+        font-size: 12px;
+    }
+
+    .statistics-chart {
+        height: 280px;
+    }
+
+    .statistics-filter {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .statistics-revenue-summary {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px;
+    }
+
+    .statistics-revenue-summary strong {
+        font-size: 19px;
+    }
+
+    .best-selling-table th,
+    .best-selling-table td {
+        padding: 12px;
+    }
+
+    .best-selling-image {
+        width: 42px;
+        height: 42px;
+    }
+
+    .best-selling-product {
+        min-width: 190px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+
+    .statistics-card,
+    .statistics-revenue-card,
+    .statistics-filter,
+    .best-selling-table td {
+        transition: none;
+    }
+}
